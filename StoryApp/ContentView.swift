@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct segmentControl: View {
-    @State var selectedTab: Tab = .all
+    @Binding var selectedTab: Tab
     @State var textWidths: [CGFloat] = Array(repeating: 0, count: Tab.allCases.count)
     @State var indexint: CGFloat = 0
     @State var textWidth: CGFloat = 0
@@ -43,6 +43,12 @@ struct segmentControl: View {
                                 textWidth = textWidths[index]
                                 selectedTab = tab
                             }
+                            
+//                            withAnimation
+//                            {
+//                                proxy.scrollTo(index, anchor : .center)
+//                            }
+                            
                         }
                     
                 }
@@ -65,9 +71,7 @@ struct segmentControl: View {
 
 }
 
-#Preview {
-    segmentControl()
-}
+
 
 enum Tab : String , CaseIterable {
     case all = "All"
